@@ -30,6 +30,7 @@ class Window:
         with dpg.theme() as global_theme:
 
             with dpg.theme_component(dpg.mvAll):
+                dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (0, 0, 0), category=dpg.mvThemeCat_Core)
                 dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 5, category=dpg.mvThemeCat_Core)
                 dpg.add_theme_style(dpg.mvStyleVar_FrameBorderSize, 1, category=dpg.mvThemeCat_Core)
                 dpg.add_theme_style(dpg.mvStyleVar_WindowBorderSize, 0, category=dpg.mvThemeCat_Core)
@@ -37,6 +38,7 @@ class Window:
                 dpg.add_theme_color(dpg.mvThemeCol_Button, (90, 90, 95))
                 dpg.add_theme_color(dpg.mvThemeCol_Header, (0, 91, 140))
             with dpg.theme_component(dpg.mvInputInt):
+                dpg.add_theme_color(dpg.mvThemeCol_WindowBg, (0, 0, 0), category=dpg.mvThemeCat_Core)
                 dpg.add_theme_color(dpg.mvThemeCol_FrameBg, (90, 90, 95), category=dpg.mvThemeCat_Core)
             #     dpg.add_theme_style(dpg.mvStyleVar_FrameRounding, 5, category=dpg.mvThemeCat_Core)
 
@@ -265,7 +267,10 @@ class Window:
 
     def draw_segments(self):
         for segment in self.simulation.segments:
-            dpg.draw_polyline(segment.points, color=(180, 180, 220), thickness=3.5*self.zoom, parent="Canvas")
+            ##lineas claras
+            # dpg.draw_polyline(segment.points, color=(180, 180, 220), thickness=3.5*self.zoom, parent="Canvas")
+            ##lineas oscuras8
+            dpg.draw_polyline(segment.points, color=(50, 50, 50), thickness=3.5*self.zoom, parent="Canvas")
             # dpg.draw_arrow(segment.points[-1], segment.points[-2], thickness=0, size=2, color=(0, 0, 0, 50), parent="Canvas")
 
     def draw_vehicles(self):
@@ -282,7 +287,8 @@ class Window:
                     (0, 0),
                     (vehicle.l, 0),
                     thickness=1.76*self.zoom,
-                    color=(0, 0, 255),
+                    ##color=(0, 0, 255),
+                    color=(255, 255, 0),
                     parent=node
                 )
 

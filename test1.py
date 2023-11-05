@@ -41,9 +41,8 @@ vg = VehicleGenerator({
         (1, {'path': [0, 12, 5], 'v': 16.6})
         ]
     })
+
 sim.add_vehicle_generator(vg)
-
-
 
 # v = Vehicle({'path': [0], 'x': 20, 'v':16.6})
 # sim.add_vehicle(v)
